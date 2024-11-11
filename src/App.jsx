@@ -6,8 +6,6 @@ import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 function IcoSpherePoints({ index }) {
 
-  const sprite = useLoader(THREE.TextureLoader, "./circle.png");
-
   const ref = React.useRef();
   const offset = index * 0.01;
   let elapsedTime = 0;
@@ -19,17 +17,19 @@ function IcoSpherePoints({ index }) {
 
   const icoGeo = new THREE.IcosahedronGeometry(2, 4);
   const colors = [];
-  let col;
+  let col = new THREE.Color();
   const icoVerts = icoGeo.attributes.position;
   const p = new THREE.Vector3();
   for (let i = 0; i < icoVerts.count; i += 1) {
     p.fromBufferAttribute(icoVerts, i);
-    let hue = 0.3 + p.x * 0.15;
+    let hue = 0.3 + p.z * 0.15;
     let light = index * 0.015;
-    col = new THREE.Color().setHSL(hue, 1.0, light);
-    colors.push(col.r, col.g, col.b);
+    let { r, g, b } = col.setHSL(hue, 1.0, light);
+    colors.push(r, g, b);
   }
+
   const colorsBuffer = new Float32Array(colors);
+  const sprite = useLoader(THREE.TextureLoader, "./circle.png");
   const size = index * 0.0015;
   return (
     <points ref={ref}>
@@ -48,11 +48,11 @@ function IcoSpherePoints({ index }) {
         />
       </bufferGeometry>
       <pointsMaterial 
-      vertexColors 
-      size={size} 
-      map={sprite}
-      alphaTest={0.5}
-      transparent={true}
+        vertexColors 
+        size={size} 
+        map={sprite}
+        alphaTest={0.5}
+        transparent={true}
       />
     </points>
   );
