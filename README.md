@@ -4,6 +4,7 @@ This project showcases a dynamic 3D animation of multiple rotating icosahedron p
 
 ![Project Preview](./public/screenshot.jpg)
 
+Watch the tutorial on [YouTube](https://youtu.be/M4DlpXWv_eo)
 
 ## Features
 
