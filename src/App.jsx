@@ -109,10 +109,21 @@ function CameraController() {
   );
 }
 
-function App() {
-  // Create a fog color - BLACK
-  const fogColor = new THREE.Color(0, 0, 0);
+// Custom fog implementation that works better with points
+function CustomFog() {
+  const scene = useThree((state) => state.scene);
+  
+  useEffect(() => {
+    scene.fog = new THREE.FogExp2(0x000000, 0.09);
+    return () => {
+      scene.fog = null;
+    };
+  }, [scene]);
+  
+  return null;
+}
 
+function App() {
   return (
     <Canvas gl={{ toneMapping: THREE.NoToneMapping }} linear>
       <CameraController />
@@ -126,8 +137,8 @@ function App() {
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} intensity={1.5} />
       </EffectComposer>
       
-      {/* Apply fog */}
-      <fog attach="fog" args={[fogColor, 3, 8]} />
+      {/* Use custom exponential fog implementation */}
+      <CustomFog />
       <color attach="background" args={[0x000000]} />
       
       <FocusPoint />
