@@ -29,7 +29,7 @@ function IcoSpherePoints({ index }) {
 
   const colorsBuffer = new Float32Array(colors);
   const sprite = useLoader(THREE.TextureLoader, "./circle.png");
-  const size = index * 0.0012;
+  const size = index * 0.0010;
   return (
     <points ref={ref}>
       <bufferGeometry>
