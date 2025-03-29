@@ -22,15 +22,14 @@ function IcoSpherePoints({ index }) {
   const p = new THREE.Vector3();
   for (let i = 0; i < icoVerts.count; i += 1) {
     p.fromBufferAttribute(icoVerts, i);
-    let hue = 0.3 + p.x * 0.15;
     let light = index * 0.015;
-    let { r, g, b } = col.setHSL(hue, 1.0, light);
+    let { r, g, b } = col.setHSL(0, 0, light);
     colors.push(r, g, b);
   }
 
   const colorsBuffer = new Float32Array(colors);
   const sprite = useLoader(THREE.TextureLoader, "./circle.png");
-  const size = index * 0.0015;
+  const size = index * 0.0012;
   return (
     <points ref={ref}>
       <bufferGeometry>
@@ -79,7 +78,7 @@ function App() {
       <PointsGroup />
       <hemisphereLight args={[0xffffff, 0x000000, 1.0]} />
       {/* <primitive object={bgSprites} /> */}
-      <OrbitControls />
+      <OrbitControls enableZoom={false} />
     </Canvas>
   );
 }
