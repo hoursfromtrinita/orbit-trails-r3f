@@ -2,13 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./assets/three-Cs0kzZUJ-Cs0kzZUJ-Cs0kzZUJ-Cs0kzZUJ-Cs0kzZUJ-Cs0kzZUJ-Cs0kzZUJ-1743266963667.svg" />
+    <link rel="icon" type="image/svg+xml" href="./three.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robot Bobby + R3F</title>
-    <script type="module" crossorigin src="./assets/index-DUp7qEL7-1743266963667.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/style-CYGpBT7F-1743266963667.css">
+    <script>
+      console.log("DIRECT SCRIPT TAG - if you see this, HTML is loading correctly");
+    </script>
+    <script type="module" crossorigin src="./assets/index-tD2BLuqz-1743270150270.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-BeRkiLSD-1743270150270.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      console.log("BOTTOM SCRIPT TAG - checking if this executes");
+      
+      // Try to load the App module directly
+      setTimeout(() => {
+        console.log("Attempting direct module import");
+        import('data:text/jsx;base64,Ly8gVEVTVElORyAtIFRISVMgVkVSU0lPTiBTSE9VTEQgU0hPVyBSRUQgUEFSVElDTEVTCmNvbnNvbGUubG9nKCJBcHAuanN4IGlzIGxvYWRpbmcgLSB0aGlzIHNob3VsZCBzaG93IHdoaXRlIHBhcnRpY2xlcyIpOwoKaW1wb3J0ICogYXMgVEhSRUUgZnJvbSAidGhyZWUiOwppbXBvcnQgUmVhY3QsIHsgdXNlUmVmLCB1c2VFZmZlY3QgfSBmcm9tICJyZWFjdCI7CmltcG9ydCB7IENhbnZhcywgdXNlRnJhbWUsIHVzZUxvYWRlciwgdXNlVGhyZWUgfSBmcm9tICJAcmVhY3QtdGhyZWUvZmliZXIiOwppbXBvcnQgeyBPcmJpdENvbnRyb2xzLCBQZXJzcGVjdGl2ZUNhbWVyYSB9IGZyb20gIkByZWFjdC10aHJlZS9kcmVpIjsKaW1wb3J0IHsgQmxvb20sIEVmZmVjdENvbXBvc2VyIH0gZnJvbSAiQHJlYWN0LXRocmVlL3Bvc3Rwcm9jZXNzaW5nIjsKCi8vIFRoaXMgY29tcG9uZW50IGNvbnRyb2xzIHRoZSBmb2N1cyBwb2ludCBmb3IgZGVwdGggb2YgZmllbGQKZnVuY3Rpb24gRm9jdXNQb2ludCgpIHsKICBjb25zdCB7IGNhbWVyYSB9ID0gdXNlVGhyZWUoKTsKICBjb25zdCBmb2N1c1JlZiA9IHVzZVJlZigpOwogIAogIC8vIFBvc2l0aW9uIHNsaWdodGx5IGluIGZyb250IG9mIHRoZSBzcGhlcmUncyBjZW50ZXIKICB1c2VGcmFtZSgoKSA9PiB7CiAgICBpZiAoZm9jdXNSZWYuY3VycmVudCkgewogICAgICAvLyBQb3NpdGlvbiB0aGUgZm9jdXMgcG9pbnQgYXQgc3BoZXJlIGNlbnRlcgogICAgICBmb2N1c1JlZi5jdXJyZW50LnBvc2l0aW9uLnNldCgwLCAwLCAwKTsKICAgIH0KICB9KTsKICAKICByZXR1cm4gPG1lc2ggcmVmPXtmb2N1c1JlZn0gdmlzaWJsZT17ZmFsc2V9IC8+Owp9CgpmdW5jdGlvbiBJY29TcGhlcmVQb2ludHMoeyBpbmRleCB9KSB7CiAgY29uc3QgcmVmID0gUmVhY3QudXNlUmVmKCk7CiAgY29uc3Qgb2Zmc2V0ID0gaW5kZXggKiAwLjAwNTsKICBsZXQgZWxhcHNlZFRpbWUgPSAwOwogIHVzZUZyYW1lKChfLCBkVGltZSkgPT4gewogICAgZWxhcHNlZFRpbWUgKz0gZFRpbWUgKiAwLjI7CiAgICByZWYuY3VycmVudC5yb3RhdGlvbi54ID0gZWxhcHNlZFRpbWUgKyBvZmZzZXQ7CiAgICByZWYuY3VycmVudC5yb3RhdGlvbi55ID0gZWxhcHNlZFRpbWUgKyBvZmZzZXQ7CiAgfSk7CgogIGNvbnN0IGljb0dlbyA9IG5ldyBUSFJFRS5JY29zYWhlZHJvbkdlb21ldHJ5KDIsIDQpOwogIGNvbnN0IGNvbG9ycyA9IFtdOwogIGNvbnN0IGljb1ZlcnRzID0gaWNvR2VvLmF0dHJpYnV0ZXMucG9zaXRpb247CiAgY29uc3QgcCA9IG5ldyBUSFJFRS5WZWN0b3IzKCk7CiAgCiAgZm9yIChsZXQgaSA9IDA7IGkgPCBpY29WZXJ0cy5jb3VudDsgaSArPSAxKSB7CiAgICBwLmZyb21CdWZmZXJBdHRyaWJ1dGUoaWNvVmVydHMsIGkpOwogICAgY29sb3JzLnB1c2goMSwgMSwgMSk7IC8vIFdoaXRlIGNvbG9yCiAgfQoKICBjb25zdCBjb2xvcnNCdWZmZXIgPSBuZXcgRmxvYXQzMkFycmF5KGNvbG9ycyk7CiAgY29uc3Qgc3ByaXRlID0gdXNlTG9hZGVyKFRIUkVFLlRleHR1cmVMb2FkZXIsICIuL2NpcmNsZS5wbmciKTsKICAvLyA1MCUgc21hbGxlciBwYXJ0aWNsZXMKICBjb25zdCBzaXplID0gaW5kZXggKiAwLjAwMDYgKiAxLjU7CiAgCiAgcmV0dXJuICgKICAgIDxwb2ludHMgcmVmPXtyZWZ9PgogICAgICA8YnVmZmVyR2VvbWV0cnk+CiAgICAgICAgPGJ1ZmZlckF0dHJpYnV0ZQogICAgICAgICAgYXR0YWNoPSJhdHRyaWJ1dGVzLXBvc2l0aW9uIgogICAgICAgICAgY291bnQ9e2ljb1ZlcnRzLmNvdW50fQogICAgICAgICAgYXJyYXk9e2ljb1ZlcnRzLmFycmF5fQogICAgICAgICAgaXRlbVNpemU9ezN9CiAgICAgICAgLz4KICAgICAgICA8YnVmZmVyQXR0cmlidXRlCiAgICAgICAgICBhdHRhY2g9ImF0dHJpYnV0ZXMtY29sb3IiCiAgICAgICAgICBjb3VudD17aWNvVmVydHMuY291bnR9CiAgICAgICAgICBhcnJheT17Y29sb3JzQnVmZmVyfQogICAgICAgICAgaXRlbVNpemU9ezN9CiAgICAgICAgLz4KICAgICAgPC9idWZmZXJHZW9tZXRyeT4KICAgICAgPHBvaW50c01hdGVyaWFsIAogICAgICAgIHZlcnRleENvbG9ycyAKICAgICAgICBzaXplPXtzaXplfSAKICAgICAgICBtYXA9e3Nwcml0ZX0KICAgICAgICBhbHBoYVRlc3Q9ezAuNX0KICAgICAgICB0cmFuc3BhcmVudD17dHJ1ZX0KICAgICAgLz4KICAgIDwvcG9pbnRzPgogICk7Cn0KCmZ1bmN0aW9uIFBvaW50c0dyb3VwKCkgewogIGNvbnN0IGNoaWxkcmVuID0gW107CiAgZm9yIChsZXQgaSA9IDA7IGkgPCA2MDsgaSArPSAxKSB7CiAgICBjaGlsZHJlbi5wdXNoKDxJY29TcGhlcmVQb2ludHMgaW5kZXg9e2l9IGtleT17aX0vPikKICB9CiAgcmV0dXJuICgKICAgIDxncm91cD4KICAgICAge2NoaWxkcmVufQogICAgPC9ncm91cD4KICApOwp9CgovLyBSZXBsYWNpbmcgd2l0aCBjYW1lcmEgc2V0dGluZ3MgZnJvbSByZWZlcmVuY2UgcmVwbwpmdW5jdGlvbiBDYW1lcmFDb250cm9sbGVyKCkgewogIC8vIE5vIGNhbWVyYSBjb250cm9sbGVyIGluIHJlZmVyZW5jZSByZXBvIC0gcmVtb3ZpbmcKICByZXR1cm4gbnVsbDsKfQoKZnVuY3Rpb24gQXBwKCkgewogIC8vIENyZWF0ZSBhIGZvZyBjb2xvciAtIEJMQUNLCiAgY29uc3QgZm9nQ29sb3IgPSBuZXcgVEhSRUUuQ29sb3IoMCwgMCwgMCk7CgogIHJldHVybiAoCiAgICA8Q2FudmFzIAogICAgICBnbD17eyB0b25lTWFwcGluZzogVEhSRUUuTm9Ub25lTWFwcGluZyB9fSAKICAgICAgY2FtZXJhPXt7IHBvc2l0aW9uOiBbMCwgMCwgOF0sIGZvdjogNDUgfX0KICAgICAgbGluZWFyCiAgICA+CiAgICAgIDxFZmZlY3RDb21wb3Nlcj4KICAgICAgICA8Qmxvb20gbHVtaW5hbmNlVGhyZXNob2xkPXswfSBsdW1pbmFuY2VTbW9vdGhpbmc9ezAuOX0gaGVpZ2h0PXszMDB9IC8+CiAgICAgIDwvRWZmZWN0Q29tcG9zZXI+CiAgICAgIDxmb2cgYXR0YWNoPSJmb2ciIGFyZ3M9e1tmb2dDb2xvciwgMywgMTJdfSAvPgogICAgICA8Y29sb3IgYXR0YWNoPSJiYWNrZ3JvdW5kIiBhcmdzPXtbMHgwMDAwMDBdfSAvPgogICAgICAKICAgICAgPEZvY3VzUG9pbnQgLz4KICAgICAgPFBvaW50c0dyb3VwIC8+CiAgICAgIDxoZW1pc3BoZXJlTGlnaHQgYXJncz17WzB4ZmZmZmZmLCAweDAwMDAwMCwgMS4wXX0gLz4KICAgICAgPE9yYml0Q29udHJvbHMgZW5hYmxlUGFuPXtmYWxzZX0gLz4KICAgIDwvQ2FudmFzPgogICk7Cn0KCmV4cG9ydCBkZWZhdWx0IEFwcDsK')
+          .then(module => {
+            console.log("App.jsx module loaded successfully:", module);
+          })
+          .catch(error => {
+            console.error("Failed to load App.jsx:", error);
+          });
+      }, 2000);
+    </script>
   </body>
 </html>
