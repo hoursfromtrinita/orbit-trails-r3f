@@ -36,8 +36,8 @@ function IcoSpherePoints({ index }) {
   const p = new THREE.Vector3();
   for (let i = 0; i < icoVerts.count; i += 1) {
     p.fromBufferAttribute(icoVerts, i);
-    // Pure white color
-    colors.push(1, 1, 1);
+    // Blue color
+    colors.push(0, 0, 1);
   }
 
   const colorsBuffer = new Float32Array(colors);
@@ -107,10 +107,20 @@ function CameraController() {
   );
 }
 
-function App() {
-  // Create a fog color - BLACK
-  const fogColor = new THREE.Color(0, 0, 0);
+// Component to directly apply fog to the scene for better control
+function FogEffect() {
+  const { scene } = useThree();
+  
+  useEffect(() => {
+    // Apply exponential fog for better effect with particles
+    scene.fog = new THREE.FogExp2(0x000000, 0.15);
+    return () => { scene.fog = null; };
+  }, [scene]);
+  
+  return null;
+}
 
+function App() {
   return (
     <Canvas 
       gl={{ toneMapping: THREE.NoToneMapping }} 
@@ -128,8 +138,8 @@ function App() {
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} intensity={1.5} />
       </EffectComposer>
       
-      {/* Apply fog with near=3, far=8 to contain it within the sphere */}
-      <fog attach="fog" args={[fogColor, 3, 8]} />
+      {/* Use custom fog implementation for better control */}
+      <FogEffect />
       <color attach="background" args={[0x000000]} />
       
       <FocusPoint />
