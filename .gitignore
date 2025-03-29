@@ -7,7 +7,7 @@ yarn-error.log*
 yarn.lock
 
 node_modules
-dist
+# dist - Enabling dist for deployment
 
 # Editor directories and files
 .DS_Store
