@@ -36,10 +36,8 @@ function IcoSpherePoints({ index }) {
   const p = new THREE.Vector3();
   for (let i = 0; i < icoVerts.count; i += 1) {
     p.fromBufferAttribute(icoVerts, i);
-    // White color with brightness based on index
-    let light = index * 0.015;
-    let { r, g, b } = col.setHSL(0, 0, light);
-    colors.push(r, g, b);
+    // Pure white color
+    colors.push(1, 1, 1);
   }
 
   const colorsBuffer = new Float32Array(colors);
@@ -109,23 +107,16 @@ function CameraController() {
   );
 }
 
-// Custom fog implementation that works better with points
-function CustomFog() {
-  const scene = useThree((state) => state.scene);
-  
-  useEffect(() => {
-    scene.fog = new THREE.FogExp2(0x000000, 0.09);
-    return () => {
-      scene.fog = null;
-    };
-  }, [scene]);
-  
-  return null;
-}
-
 function App() {
+  // Create a fog color - BLACK
+  const fogColor = new THREE.Color(0, 0, 0);
+
   return (
-    <Canvas gl={{ toneMapping: THREE.NoToneMapping }} linear>
+    <Canvas 
+      gl={{ toneMapping: THREE.NoToneMapping }} 
+      camera={{ position: [0, 0, 6], fov: 45 }}
+      linear
+    >
       <CameraController />
       <EffectComposer>
         <DepthOfField 
@@ -137,8 +128,8 @@ function App() {
         <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} intensity={1.5} />
       </EffectComposer>
       
-      {/* Use custom exponential fog implementation */}
-      <CustomFog />
+      {/* Apply fog with near=3, far=8 to contain it within the sphere */}
+      <fog attach="fog" args={[fogColor, 3, 8]} />
       <color attach="background" args={[0x000000]} />
       
       <FocusPoint />
