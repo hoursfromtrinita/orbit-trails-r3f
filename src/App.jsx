@@ -112,7 +112,7 @@ function App() {
       <FocusPoint />
       <PointsGroup />
       <hemisphereLight args={[0xffffff, 0x000000, 1.0]} />
-      <OrbitControls enablePan={false} />
+      <OrbitControls enablePan={false} enableZoom={false} />
     </Canvas>
   );
 }
