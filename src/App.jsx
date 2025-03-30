@@ -7,6 +7,29 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
+// This component prevents wheel-based zooming at a global level
+function PreventZoom() {
+  useEffect(() => {
+    // Prevent wheel events from zooming
+    const preventWheel = (e) => {
+      // Only prevent within the canvas area
+      if (e.target && e.target.tagName === 'CANVAS') {
+        e.preventDefault();
+      }
+    };
+    
+    // Add event listener with passive: false to allow preventDefault
+    window.addEventListener('wheel', preventWheel, { passive: false });
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('wheel', preventWheel);
+    };
+  }, []);
+  
+  return null;
+}
+
 // This component controls the focus point for depth of field
 function FocusPoint() {
   const { camera } = useThree();
@@ -98,22 +121,30 @@ function App() {
   const fogColor = new THREE.Color(0, 0, 0);
 
   return (
-    <Canvas 
-      gl={{ toneMapping: THREE.NoToneMapping }} 
-      camera={{ position: [0, 0, 8], fov: 45 }}
-      linear
-    >
-      <EffectComposer>
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
-      </EffectComposer>
-      <fog attach="fog" args={[fogColor, 3, 12]} />
-      <color attach="background" args={[0x000000]} />
-      
-      <FocusPoint />
-      <PointsGroup />
-      <hemisphereLight args={[0xffffff, 0x000000, 1.0]} />
-      <OrbitControls enablePan={false} enableZoom={false} />
-    </Canvas>
+    <>
+      <PreventZoom />
+      <Canvas 
+        gl={{ toneMapping: THREE.NoToneMapping }} 
+        camera={{ position: [0, 0, 8], fov: 45 }}
+        linear
+      >
+        <EffectComposer>
+          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+        </EffectComposer>
+        <fog attach="fog" args={[fogColor, 3, 12]} />
+        <color attach="background" args={[0x000000]} />
+        
+        <FocusPoint />
+        <PointsGroup />
+        <hemisphereLight args={[0xffffff, 0x000000, 1.0]} />
+        <OrbitControls 
+          enablePan={false} 
+          enableZoom={false}
+          minDistance={8}
+          maxDistance={8}
+        />
+      </Canvas>
+    </>
   );
 }
 
