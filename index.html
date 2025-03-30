@@ -2,30 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/three.svg" />
+    <link rel="icon" type="image/svg+xml" href="./three.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robot Bobby + R3F</title>
     <script>
       console.log("DIRECT SCRIPT TAG - if you see this, HTML is loading correctly");
     </script>
+    <script type="module" crossorigin src="./assets/index-tD2BLuqz-1743270150270.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-BeRkiLSD-1743270150270.css">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script>
-      console.log("BOTTOM SCRIPT TAG - checking if this executes");
-      
-      // Try to load the App module directly
-      setTimeout(() => {
-        console.log("Attempting direct module import");
-        import('./src/App.jsx')
-          .then(module => {
-            console.log("App.jsx module loaded successfully:", module);
-          })
-          .catch(error => {
-            console.error("Failed to load App.jsx:", error);
-          });
-      }, 2000);
-    </script>
+    <!-- Removed references to source files and direct imports to use the built files instead -->
   </body>
 </html>
